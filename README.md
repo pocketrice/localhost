@@ -1,5 +1,6 @@
 # localhost
-<img width="1431" alt="Screen Shot 2022-11-15 at 10 53 34 PM" src="https://user-images.githubusercontent.com/79682953/202079563-2dec6339-561a-43a9-8061-4521490c3697.png">
+<img width="1439" alt="Screen Shot 2022-11-16 at 12 53 57 AM" src="https://user-images.githubusercontent.com/79682953/202095406-a016fd71-da5c-414c-8f4d-400eeae6b891.png">
+
 
 
 Localhost server dumping ground for my past web projects. Hosted on the M1 laptop, user access perms are currently a work-in-progress. Currently implemented pages are Trifecta, Internet Timeline, WoTD IV, Kryptos, Hyperwares.
