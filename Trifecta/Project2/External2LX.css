@@ -1,0 +1,107 @@
+img#cernlogo {
+filter: drop-shadow(4px 4px #58838c);
+padding-top: 10px;
+padding-left: 5px;
+}
+
+@font-face { /* Allows the use of a custom font */
+font-family: Chomsky;
+src: url(chomsky.regular.otf);
+}
+
+
+#plainbody {
+font-size: 14px;
+}
+
+br:not(.ext2) { /* All 'br' except for specified ones; just to reduce the amount of ids that would be needed*/
+visibility: hidden;
+display: none;
+}
+
+hr {
+border-color: #827268; /* Note: for some reason, it doesn't use the "color:" property */
+border-width: 2.5px;
+
+}
+
+iframe {
+width:350px;
+height:200px;
+filter: grayscale(90%);
+}
+
+hr.ext2 {
+visibility: hidden;
+display: none;
+}
+
+.column { /* Based on divs in html, splits everything into three columns */
+float: left;
+width: 25%;
+padding: 50px;
+}
+
+
+body {
+background-image: url("VintagePaper.jpg");
+background-size: cover;
+font-family: Didot;
+}
+
+
+h3.title {
+font-family: Chomsky;
+font-weight: normal;
+font-size:20px;
+}
+
+h2 { /* Hide the original text, and then replace with an image */
+visibility: hidden;
+}
+
+h2:after { /* See above! */
+content: url("Ext2NewspaperStyle.png");
+padding-left: 15%;
+visibility: visible;
+}
+
+footer { /* The footer was acting strangely after I applied the columns, as somehow, it is now positioned at the top rather than the bottom */
+color: #3a3631;
+padding-left: 380px;
+position: absolute;
+}
+
+header {
+background-image: url("VintagePaper.jpg");
+background-position: 100%;
+border-radius: 0 0 10px 10px;
+box-shadow: 5px 5px 8px #998c83;
+height: 80px;
+}
+
+img#tim {
+width: 300px;
+height: 200px;
+margin: 20px 0px 20px 0px;
+filter: grayscale(80%);
+}
+
+img#robert {
+width: 300px;
+height: 340px;
+margin: 20px 0px 20px 0px;
+filter: grayscale(80%);
+}
+
+a {
+color: #82818b
+}
+
+
+#marquee { /* Marquee id is mostly used in ExternalLX.css, just reused here since it's the same HTML file (basically this has nothing to do with a marquee)*/
+font-family: "Courier New";
+margin-left: 20px;
+margin-top: 30px;
+position: absolute;
+}

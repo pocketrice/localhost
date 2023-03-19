@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+h2 {
+text-align: center;
+
+}
+
+img.static {
+margin: 30px;
+}
+
+
+span {
+color: #898484;
+}
+
+#demo {
+width: 500px;
+}
+
+
+
+
+
+/* ========= DEMO ========= */
+
+
+#img1 { /* Triangle */
+clip-path: polygon(30% 11%, 5% 94%, 97% 75%);
+}
+
+#img2 { /* Hexagon */
+clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+#img3 { /* Circle */
+clip-path: circle(50% at 50% 50%);
+}
+
+
+/* ====================== */
+
+
+
+
+
+
+
+#poly1 {
+clip-path: polygon(19% 29%, 0 100%, 99% 80%);
+transition: clip-path 3s;
+filter: hue-rotate(60deg) saturate(400%);
+}
+
+#poly2 {
+clip-path: polygon(19% 29%, 43% 88%, 94% 11%);
+transition: clip-path 3s;
+filter: hue-rotate(230deg) saturate(400%);
+}
+
+#poly3 {
+clip-path: polygon(81% 56%, 16% 83%, 66% 11%);
+transition: clip-path 3s;
+filter: hue-rotate(-30deg) saturate(400%);
+}
+
+#poly4 {
+clip-path: polygon(89% 79%, 86% 50%, 28% 60%);
+transition: clip-path 3s;
+filter: hue-rotate(60deg) saturate(400%) contrast(0.3);
+}
+
+
+
+
+
+#poly1:hover {
+clip-path: polygon(50% 0, 0 100%, 100% 100%);
+filter: contrast(0);
+}
+#poly2:hover {
+clip-path: polygon(50% 0, 0 100%, 100% 100%);
+filter: contrast(0);
+}
+#poly3:hover {
+clip-path: polygon(50% 0, 0 100%, 100% 100%);
+filter: contrast(0);
+}
+#poly4:hover {
+clip-path: polygon(50% 0, 0 100%, 100% 100%);
+filter: contrast(0);
+}
+
+
+
+
+/* ========= DEMO ========= */
+/* Modify the image */
+#demo {
+clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+transition: clip-path 5s;
+}
+
+
+
+/* Set what happens when you hover */
+#demo:hover {
+clip-path: polygon(17% 32%, 93% 25%, 82% 96%, 1% 76%);
+}
+
+/* ======================== */
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+<title>clip-path demo</title>
+<h2>clip-path demo</h2>
+<hr>
+
+
+
+<img src="DemoSquare.jpg" id="img1" class="static">
+<img src="DemoSquare.jpg" id="img2" class="static">
+<img src="DemoSquare.jpg" id="img3" class="static">
+These shapes were made by using <strong>clip-path</strong> on a square.
+
+<br>
+<br>
+<img src="DemoSquare.jpg" id="poly1">
+<img src="DemoSquare.jpg" id="poly2">
+<img src="DemoSquare.jpg" id="poly3">
+<img src="DemoSquare.jpg" id="poly4">
+Hover over the triangles! <span>This is done with CSS <strong>transitions</strong>.</span>
+
+<br>
+<br>
+<br>
+
+
+
+<!-- ========= DEMO ========= -->
+<!-- Add the image -->
+<img src="image.jpg" id="demo">
+
+<!-- ======================== -->
+
+
+
+
+
+
+Now let's see how to make one!
+
+
+
+
+
+<br><br><br>
+<hr>
+<a href="https://bennettfeely.com/clippy/" target="_blank">clip-path tool</a>
+
+
+
+</body>
+
+</html>

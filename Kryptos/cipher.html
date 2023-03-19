@@ -1,0 +1,253 @@
+
+<!-- PROJECT 3: CAREER PAGE | Lucas Xie | P4A Web Programming -->
+<!-- Description: Contains information about ciphers, a vital part of cryptography. Includes examples and touches on both classical and modern cryptography.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Kryptos | Ciphertexts</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="icon" type="image/x-icon" href="kryptos-favicon.png">
+
+	<script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js"></script> <!-- Smooth scrolling for browsers that don't support scroll-behavior: smooth -->
+	<script src="script-abbreviated.js"></script>
+
+
+	<meta charset="utf-8"> <!-- Recommended meta -->
+	<meta name="title" content="Kryptos">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Recommended meta -->
+	<meta name="description" content="An in-depth introduction to the growing cryptographer job">
+	<meta name="keywords" content="cryptography, computer science, job">
+</head>
+<body onscroll="topCheck()"> 
+	<header class="top"> <!-- HEADER -->
+		<span id="textTitle">Kryptos&nbsp;&nbsp;&nbsp;</span><br class="portraitMode"><span id="textSubtitle"></span>
+	</header>
+
+	<nav> <!-- NAVBAR -->
+		<ul>
+			<li> <a href="Project3LX.html">Home</a></li>
+			<li> <a href="pathway.html">Pathway</a></li>
+			<li> <a href="cert.html">Certifications</a></li>
+			<li> <a href="cipher.html" class="active">Ciphers</a></li>
+			<li> <a href="resources.html">Resources</a></li>
+			<li> <a href="demo.html">Demo</a></li>
+
+		</ul>
+	</nav>
+	<a onclick="topButtonToggle(1)"><img src="kryptos-top-button.svg" class="topbutton"></a>
+	<img onclick="topButtonToggle(0)" src="top-button-minimize.png" class="topbuttonToggle">
+
+
+
+	<div class="content">
+
+		<div class="summaryContainer"><br>
+			<div class="summaryText"> <!-- SUMMARY -->
+				A key part of understanding cryptography is to delve a little deeper into the mathematical side of things -- this includes a vital tool, ciphers!
+				<br><br>There are two forms of ciphers: classical and modern. Most classical ciphers are simple and easy to decode, while modern techniques are more advanced and often brute forcing is infeasible.
+			</div><br><div class="hr"></div></div>
+
+			<div> <!-- SECTION 1 -->
+				<h2>Substitution Ciphers<sup><a href="citations.html#13">13</a></sup></h2>
+				<img src="classical-substitution-graphic.svg" usemap="#image_map" id="cl-substitution" loading="lazy"><!--<map name="image_map">
+					<area alt="atbash" title="atbash" href="cipher.html#atbash" coords="452,70,592,232" shape="rect">
+					<area alt="rot13" title="rot13" href="cipher.html#rot13" coords="603,72,728,238" shape="rect">
+					<area alt="caesar" title="caesar" href="cipher.html#caesar" coords="741,69,875,238" shape="rect">
+					<area alt="baconian" title="baconian" href="cipher.html#baconian" coords="900,63,1056,225" shape="rect">
+					<area alt="simplesubst" title="simplesubst" href="cipher.html#simplesubst" coords="1063,64,1232,225" shape="rect">
+				</map>-->
+
+				<div class="stripe"><br><br>
+					<h2 id="atbash">Atbash</h2>
+					<p>This simple cipher simply replaces the first letter of the alphabet with the last, the second with the second-to-last, and so on. (A becomes Z, B becomes Y, etc.)</p> <!--<em>For all of these ciphers, you can use the Cipher Machine to experiment with them!</em>-->
+					<img src="ciphers/atbash.svg" class="cipher">
+					<br>
+					<div class="warning">
+						<p class="warning">CAREFUL!</p>
+						<p>Classical ciphers are not very secure and are easy to crack with today's technology. They are rather simple and were made considering that human brute forcing would be unreasonable... but of course, computers exist today. <br><br>If you're looking for a practical, secure encryption method, take a look at the <strong>modern ciphers</strong> section of this page!</p>
+					</div><br><br></div>
+					<br><br><br><br><br>
+
+					<h2 id="rot13">ROT13</h2>
+					<p>This cipher is rather simple and easy. <dfn>It simply replaces a letter with the letter 13 places after it in the standard alphabet, which can still make a message obscured but easy to decipher.</dfn></p><br>
+					<p>Why specifically 13 spaces? This is because the basic Latin alphabet has 26 letters (2 x 13), and so both encryption and decryption would be convenient and quick.</p>
+					<img src="ciphers/rot13.svg" class="cipher">
+
+					<br><br><br><br><br>
+					<div class="stripe"><br><br>
+						<h2 id="caesar">Caesar</h2>
+						<p>This cipher is famous and well-known, for one reason: it is simple and easy to understand. Of course, it provides no practical security nowadays whatsoever, but is an interesting novelty / introduction to ciphers. <dfn>This develops further on ROT13, instead allowing for shifting by any number of spaces.</dfn></p>
+						<img src="ciphers/caesar.svg" class="cipher"><br><br></div>
+						<br><br><br><br><br>
+						<h2 id="baconian">Baconian</h2><p>The Baconian cipher is fittingly named after its inventor, Sir Francis Bacon. <dfn>Every letter is replaced by a sequence of 5 characters algorithmically, which you can see below:</dfn></p>
+						<br>
+						<table>
+							<tr class="labelColumn">
+								<td>A = aaaaa</td>
+								<td>B = aaaab</td>
+								<td>C = aaaba</td>
+								<td>D = aaabb</td>
+								<td>E = aabaa</td>
+								<td>F = aabab</td>
+								<td><em>etc.</em></td>
+				
+							</table><br><br>
+							<p>How does this work? Well, we use these character sequences to strategically capitalize and uncapitalize letters (a = lowercase, b = uppercase), encoding the message into filler text.
+								<img src="ciphers/baconian.svg" class="cipher">
+									<br><br><br><br><br>
+									<div class="stripe"><br><br>
+										<h2 id="simplesubst">Simple Substitution</h2>
+										<p>This cipher substitutes every plaintext letter with a different ciphertext letter, based on a "cipher alphabet":</p>
+										<p id="mono">Plain alphabet: abcdefghijklmnopqrstuvwxyz<br>Cipher alphabet: phqgiumeaylnofdxjkrcvstzwb</p>
+										<img src="ciphers/simplesub.svg" class="cipher">
+
+										<br><br>
+										<p>Rather simple, no? The following section will brief you on polyalphabetic ciphers, a slightly more complex variation on the previously mentioned ciphers.<br><br><br><br><br><br><br>
+										</div>
+										<div class="hr"></div><br> <!-- SECTION 2 -->
+										<h2 id="runningkey">Running Key</h2>
+										<p>The running key cipher, much like other polyalphabetic ciphers, relies on a key and a tableau to encrypt and decrypt messages.<br><img src="ciphers/runningkey.svg" class="cipher"> 
+
+											<br><br><br><br><br>
+											<div class="info">
+												<p class="info">Did you know?</p>
+												<p>The tableau, or tabula recta, <dfn>is a square chart of alphabets with each row being the previous row shifted one to the left. This creates a chart where any combination of two letters produces a specific letter.</dfn><br><br>This is used alongside a key for most polyalphabetic ciphers. Really interesting stuff!</p><br></div><br><br><img src="tabula-recta.svg" id="tabularecta"><br><p class="caption">This is a tabula recta -- not too hard to understand, no?</p><br><br><div class="stripe"><br><br>
+												<h2 id="vigenere">Vigen&egrave;re</h2>
+												<p>This cipher is famous for being considered a "chiffre ind hiffrable" (French for "unbreakable cipher") for nearly 300 years, and is commonly used today (not in practical settings of course).</p>
+												<br>
+												<p>The Vigen&egrave;re uses a key and tableau just like with the running key cipher, except the key is a key word rather than a full excerpt (this makes running key more 'secure' than Vigen&egrave;re usually).</p>
+												<br>
+												<p>Repeat the same process as with running key, where the key word is repeated over and over and matched to the message's letters to generate the encrypted message.</p><br><img src="ciphers/vigenere.svg" class="cipher"> <br></div>
+												<br><br><br><br><br>
+												<h2 id="enigma">Enigma<sup><a href="citations.html#14">14</a></sup></h2>
+												<div class="info">
+													<p class="info">Did you know?</p>
+													<p>The Enigma cipher machine is famous for its use in Germany during WWII, but was conceived prior to the war. It was considered so secure that it was used for some of the most confidential messages from the highest ranks, and its extensive features proved to be a real cryptographic challenge for avid decryptors.</p>
+													<p>This cipher was very much an enigma, being far more flexible (and thus harder to decrypt) than all the previous examples.</p></div>
+													<br>
+													<p>The Enigma uses a rotor mechanism that generated a cipher alphabet and was capable of both encryption and decryption -- the flexibility of it all stems from its adjustable machine settings, commonly based on a predetermined key lists that both the transmitter and receiver would use to properly encode/decode the message.</p>
+													<br>
+													<p>First, there are some important considerations to note about the Enigma:<p>
+														<ul>
+															<li><p>Every time a key is pressed, the entire cipher alphabet changes <em>(so pressing the same key repeatedly won't produce the same outputs)</em></p></li>
+															<li><p>The three changeable components of the Enigma are the rotors, the ringstellung <em>(ring settings)</em>, and steckerverbindungen <em>(plug board settings)</em>.</p></li>
+														</ul>
+														<br>
+														<p>The Enigma, at its simplest, essentially takes an input and passes through three rotors (which contain different substitution cipher alphabets), then runs through a reflector which passes the input back through the rotors backwards. To add to its complexity, the input passes through an interchangeable plugboard (which can be set to replace all instances of one letter with another) twice throughout the entire process.</p>
+														<p>How does the Enigma encrypt the same input differently every time a key is pressed? The answer is the three rotors -- every time a key is pressed, rotor I moves forward one position; when it has turned through all 26 letters encryption is based on rotor II, which repeats the process. <strong>This alone allows for 17,000 different combinations before the encryption process repeats!</strong></p>
+														<br><br><img src="scherbius-enigma-patent.png" id="enigmamachine"><p class="caption">This is the original 1928 patent for the Enigma machine by Arthur Scherbius. Look closely, and you can see the aforementioned encryption process!</p><br><br><br><div class="hr"></div><br><br> <!-- SECTION 3 -->
+														<h2>Transposition Ciphers<sup><a href="citations.html#15">15</a></sup></h2>
+														<img src="classical-transposition-graphic.svg" loading="lazy">
+														<div class="warning">
+															<p class="warning">CAREFUL!</p>
+															<p>It is important to note that transposition ciphers differ from substitution ciphers in that they do not preserve the order of the message! Its security comes mainly from permutations instead -- this makes them more primitive and easier to decode than substitution ciphers, but they can be the basis for stronger encryption methods.</p>
+														</div><br><br><br>
+														<div class="stripe"><br><br>
+															<h2 id="railfence">Rail Fence</h2>
+															<p><dfn>The name of this cipher comes from the method of encryption visually looking like diagonal "rails on a fence".The plaintext is written diagonally downwards and upwards in a wave pattern, and the final encryption is made by writing down each row.</dfn></p>
+															<br>
+															<p>So, using this method, "hello world" would be encrypted as HOLELWRDLO.</p><br><img src="ciphers/railfence.svg" class="cipher"><br></div>
+															<br><br><br><br><br>
+															<h2 id="scytale">Scytale</h2>
+															<p>The scytale is remarkably similar to the rail fence cipher, except instead of a "diagonally downward, diagonally upward", it is a pattern of only going diagonally downward. The encrypted message is still made based on each row.</p>
+															<br><img src="ciphers/scytale.svg" class="cipher"><br><br><br><br>
+															<div class="stripe"><br><br>
+																<h2 id="route">Route</h2>
+																<p>The route cipher is considered surprisingly a practical and secure encryption method if messages are of a significant length (even too great for feasible brute-forcing by computers)!</p>
+																<p>The plaintext is first written out in a grid of specified width and height, and encryption/decryption depends on the key -- which specifies a "path" that determines the encrypted message.</p><br><br><img src="ciphers/route.svg" class="cipher">
+																<div class="info">
+																	<p class="info">Did you know?</p>
+																	<p>
+																	The route cipher variation known as the Union Route Cipher was used by Union forces during the Civil War, where entire words were transposed instead of individual letters. Since this was less secure, these words were then further encrypted using substitution.</p>
+																	<p>Sometimes null words were inserted as well, not only to strengthen the message's encryption, but instead were often specifically chosen to make the ciphertext much more humorous!<sup><a href="citations.html#15" class="footnoteOverride">15</a></sup></p></div><br><br></div>
+																	<br><br><br><br><br>
+																	<h2 id="columnartran">Columnar Transposition</h2>
+																	<p>Columnar transposition involves writing out the message in specified dimensions (much like the initial steps of route encryption) based on a keyword (whose length determines the number of columns).</p>
+																	<br>
+																	<p>Then, encryption is based on the alphabetical order of the letters in the keyword, matching each column to a set order.</p><br><br><img src="ciphers/columnar.svg" class="cipher"><br><br><br>
+																	<div class="warning">
+																		<p class="warning">CAREFUL!</p>
+																		<p>Single columnar transpositions (detailed above) are notably insecure given that the encrypted message can be written in columns and easily brute-forced. However, one easy and simple way most utilizing the columnar method used to strengthen the encryption was...</p></div>
+																		<br><br><br><br><br>
+																		<div class="stripe"><br><br>
+																			<h2 id="doubletran">Double Transposition</h2>
+																			<p>...simply applying columnar transposition yet again!</p>
+																			<p>Double transposition simply involves writing out the pre-transposed message with number of columns dependent on the keyword (which can be the same or different) and so forth.</p><br><br><img src="ciphers/doublecolumnar.svg" class="cipher"><br><br><br></div>
+																			<br><br><br><br><br>
+																			<h2 id="myszkowskitran">Myszkowski Transposition</h2>
+																			<p>Myszkowski encryption is based on columnar transposition and expands on the concept itself.</p>
+																			<p>While utilizing the same process, the keyword does not have unique characters but instead purposely uses a word that has reoccurring letters (such as "tomato").</p>
+																			<p>Columns with unique numbers are read downwards, while those with reoccurring letters are read from left to right.</p>
+																			<br><br><img src="ciphers/myszkowski.svg" class="cipher"><br><br><br>
+																			<div class="stripe"><br><br>
+																				<h2 id="onetimepad">The One-Time Pad</h2>
+																				<p>Another <em>very</em> interesting cipher is the one-time pad, which is a form of encryption that is impossible to crack.</p>
+																				<p><dfn>A message is paired with a secret key (consisting of a randomized set of letters), where each character of the message is matched to a character from the key using modular addition (as in, y + c would produce b).</dfn></p>
+																				<br><br>
+																				<p>As Wikipedia notes, the resulting encryption will be absolutely impossible to decrypt without having the key itself if the following conditions are satisfied:</p>
+																				<ul>
+																					<li><p>The key is the same length or longer than the message.</p></li>
+																					<li><p>The key is completely random and kept completely secret.</p></li>
+																					<li><p>The key must never be reused in any way.</p></li>
+																				</ul><br><br>
+																				<div class="info">
+																					<p class="info">Did you know?</p>
+																					<p>
+																						The one-time pad was used extensively by the NSA throughout the 1970s and onwards. Over 86,000 one-time pads were produced and used by the agency in 1972 alone!<sup><a href="citations.html#16" class="footnoteOverride">16</a></sup></p></div><br><br><img src="nsa-onetimepad.png" id="nsa-otp"><p class="caption">One-time pads like these were widely used by the NSA. Looks simple, but impossible to break!</div><div class="hr"></div><br><br> <!-- SECTION 4 -->
+																						<h2>Modern Ciphers<sup><a href="citations.html#17">17</a></sup></h2>
+																						<p>In a world where tools such as computers can quickly and easily break through most classical ciphers, it quickly became necessary to find new methods of encryption that could be brute-forced with computers, but would be unfeasible (e.g. theoretically requiring thousands of years to correctly decrypt).</p>
+																						<p>This is where modern ciphers come in -- with some of the most famous examples being encryption algorithms/hashes such as AES, RSA, and SHA.</p>
+																						<br><br>
+																						<img src="modern-ciphers-graphic.svg" id="modern-ciphers" loading="lazy">
+																						<br>
+																						<div class="stripe"><br><br>
+																							<h2 id="aes">Advanced Encryption Standard (AES)<sup><a href="citations.html#18">18</a></sup></h2>
+																							<p><dfn>AES is a form of encryption that relies on symmetric-key cryptography, as in one key that is kept private between both the sending and receiving parties is used for both encryption and decryption of the message.</dfn></p>
+																							<p>But how does it work? In a way, it builds upon both forms of classical ciphers by using a substitution-transposition system.</p>
+																							<br>
+																							<p>Similar to classical ciphers, the same key is used to both encrypt and decrypt the message -- in fact, the process is rather similar to the complex procedure used by the Enigma cipher!</p><br><br></div>
+																							<br><br><br><br><br>
+																							<h2 id="rsa">Rivest-Shamir-Adleman (RSA)</h2>
+																							<div class="info">
+																								<p class="info">Did you know?</p>
+																								<p>
+																									The RSA algorithm is named after its creators, Ron Rivest, Adi Shamir, and Leonard Adleman, who publicly disclosed the method in 1977. <br><br>However, the concept of a asymmetric-key system was first published conjointly by famous cryptographers Whitman Diffie and Martin Hellman.</p></div>
+																									<br>
+																									<p><dfn>When using RSA, two keys are involved in the encryption-decryption system rather than just one.</p>
+																										<p>Surprisingly, these keys are not all kept secret -- instead, the encryption key is publicly disclosed while the decryption key is kept secret.</dfn></p>
+																										<p>While RSA is considered very, <em>very</em> secure, it is relatively slow and thus isn't used for standard encryption of user data -- but still can be very useful.</p>
+																										<br><br><br><br><br>
+																										<div class="stripe"><br><br>
+																											<h2 id="sha">Secure Hash Algorithm (SHA)<sup><a href="citations.html#19">19</a></sup></h2>
+																											<p><dfn>This third form of encryption uses a method called 'hashing', where a message can be encrypted using a hashing function that produces a message that is unable to be decrypted.</dfn></p>
+																											<br>
+																											<p>So, you might ask, "why would one-way encryption be useful"? The SHA algorithm can be used to identify a message while still keeping it secure (since even two very similar messages will still produce very different hashes).</p>
+
+																											<div class="info">
+																												<p class="info">Did you know?</p>
+																												<p>
+																													The SHA algorithm has gone through many different iterations throughout its life cycle.<br><br>The current version, SHA-3, was chosen by the NSA in 2012 via a public competition.</p></div><br><br><br><br><br></div>
+																													
+<!--
+<p id="congrats">CONGRATULATIONS!</p>
+<p>You now know a lot more about the intricacies of cryptography! These brief explorations have only scathed the surface of each cipher, so be sure to check the Resources page to learn more.</p>
+<p>Try the Cipher Machine below to try encrypting and decrypting your own plaintexts!</p>
+</div>
+<div id="cipherMachine">
+	<form>
+<p>Choose your cipher: <button onclick="cipherSelect()">N/A</button></p>
+<p>Pick an input type: </p>
+
+<input type="radio" name="inputType" value="encryption">
+<label for="encryption">Encryption</label><br>
+<input type="radio" name="inputType" value="decryption">
+<label for="decryption">Decryption</label>
+</form>-->
+</div>
+<footer> <!-- FOOTER -->
+	<small>Copyright &copy; 2022 Lucas <strong>&nbsp;&boxV;&nbsp;</strong>   
+		<a href="mailto:xie.3@uaschools.org">Questions? Concerns? Email the author</a> <strong>&nbsp;&boxV;&nbsp;</strong>  <a href="citations.html">Citations</a></small>
+	</footer>
+</body>
+</html>

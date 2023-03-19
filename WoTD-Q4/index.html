@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="prefetch" href="AlbertusMT.otf">
+	<link rel="prefetch" href="CascadiaCode.ttf">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	<title>A Look At CSS Positioning</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Inconsolata&display=swap');
+
+		body {
+			overflow: hidden;
+		}
+
+		@font-face {
+			font-family: Albertus MT;
+			src: url("AlbertusMT.otf");
+		}
+
+		@font-face {
+			font-family: Cascadia Code;
+			src: url("CascadiaCode.ttf");
+		}
+
+
+		img.backdrop {
+			position: absolute;
+			z-index: -100;
+			top: -50px;
+			width: 100%;
+			height: 100%;
+			filter: blur(15px) brightness(50%) contrast(85%);
+			background-color: black;
+			padding: 30px;
+			left: -20px;
+		}
+
+
+		footer {
+			margin: 0;
+			padding: 18px 500px 20px 50px;
+			background-color: #151514;
+			font-family: "Cascadia Code";
+			color: #a59494;
+			font-size: 12px;
+			position: absolute;
+			bottom: -10px;
+			left: -10px;
+		}
+
+		#lazyfooter {
+			position: absolute;
+			bottom: 0px;
+			left: -10px;
+			background-color: #151514;
+			margin: 0;
+			padding-left: 100%;
+			padding-right: 60%;
+			padding-bottom: 10px;
+		}
+
+		footer p {
+			position: fixed;
+			bottom: 0;
+			right: 20px;
+			font-size: 13px;
+			color: #81ada6;
+			transition: color 0.8s;
+			user-select: none;
+		}
+
+		footer p:hover {
+			color: #bae3e7;
+			cursor: pointer;
+		}
+
+		#panelIdNum {
+			color: #494343;
+			font-family: Albertus MT;
+			font-size: 12px;
+		}
+
+		#panelId {
+			transition: color 0.8s;
+		}
+
+
+		#static, #relative, #fixed, #absolute, #sticky {
+			transition: opacity 2s;
+			height: 100%;
+			width: 100%;
+		}
+
+		#relative, #fixed, #absolute, #sticky {
+			opacity: 0;
+		}
+
+		h3 {
+			font-family: Cascadia Code;
+			color: #d5d4d1;
+			font-size: 30px;
+			position: absolute;
+			float: right;
+			right: 40%;
+			top: 50px;
+			z-index: 100;
+		}
+
+		div.samplePanel {
+			position: absolute;
+			background-image: linear-gradient(to top left, #FFFDDB20, #F9FFD815);
+			border-radius: 30px;
+			z-index: -100;
+			left: 6.4%;
+			top: 15%;
+			padding: 100px 300px 300px 200px;
+		}
+
+		.samplePanel p {
+			position: fixed;
+			left: 90px;
+			top: 100px;
+			color: #b9af9b;
+			font-family: Albertus MT;
+			font-size: 20px;
+			margin-right: 55%;
+		}
+
+		#relative .samplePanel p {
+			position: absolute;
+			left: 110px;
+			top: 150px;
+			margin-right: 10%;
+		}
+
+		ul {
+			position: absolute;
+			font-family: Inconsolata;
+			color: #cec1b6;
+			font-size: 17px;
+			right: 60px;
+			top: 120px;
+			padding-left: 50%;
+		}
+
+		.emphasis {
+			color: #cd9584;
+		}
+
+		p#absoluteText {
+			position: absolute;
+			left: 120px;
+			top: 120px;
+			transform: rotateZ(20deg);
+			background-color: #9ae7c8D3;
+			font-size: 21px;
+			font-family: Inconsolata;
+			color: #457764;
+			border-radius: 4px;
+			padding: 4px 15px;
+			margin-right: 0;
+			z-index: 200;
+		}
+
+		p#stickyText {
+			left: 90px;
+			top: 120px;
+			position: absolute;
+			border: solid 3px #405736;
+			border-radius: 5px;
+			font-family: Inconsolata;
+			font-size: 18px;
+			z-index: 200;
+			background-color: #91b690E3;
+			color: #435244;
+			margin-right: 0;
+		}
+
+		p#fixedText {
+			left: 90px;
+			top: 20px;
+			position: absolute;
+			border: solid 3px #35595D;
+			border-radius: 5px;
+			font-family: Inconsolata;
+			font-size: 18px;
+			z-index: 200;
+			background-color: #79B6AEE3;
+			padding: 2px 10px;
+			color: #2E5151;
+			margin-right: 0;
+		}
+
+		p#scrollToggle {
+			left: 230px;
+			top: 482px;
+			position: absolute;
+			border-radius: 10px;
+			font-family: B612 Mono;
+			font-size: 14px;
+			z-index: 200;
+			background-color: #40524DC3;
+			color: #7bb2b1;
+			padding: 6px 30px;
+			margin-right: 0;
+			transition: background-color 0.7s, color 0.7s, opacity 2s;
+			opacity: 0;
+		}
+
+
+		p#scrollToggle:hover {
+			background-color: #66837cC3;
+			color: #9ee8f0;
+			user-select: none;
+			cursor: pointer;
+		}
+
+		.scrollbarBG {
+			background-color: #767d7fED;
+			position: absolute;
+			padding: 100px 8px 240px 0;
+			top: 30px;
+			left: 480px;
+		}
+
+		.scrollbar {
+			background-color: #afbabdED;
+			position: absolute;
+			padding: 100px 8px 50px 0;
+			top: 30px;
+			left: 480px;
+		}
+
+	</style>
+</head>
+<body>
+	<img src="rain-park.jpg" class="backdrop">
+			<p id="scrollToggle" onclick="scrollToggle()">"Scroll" down</p>
+	<div id="static">
+		<div class="samplePanel">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<h3>static</h3>
+		<ul>
+			<li>This is the default positioning for all HTML elements.</li><br>
+			<li>The properties top, bottom, left, and right or z-index will have no effect -- instead it only follows the normal flow of the page.</li><br><br>
+			<li class="emphasis">This positioning type does not allow for much customization -- it's the default position type, after all.</li>
+		</ul>
+	</div>
+
+	<div id="relative">
+		<div class="samplePanel">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<h3>relative</h3>
+		<ul>
+			<li>Elements are positioned relative to themselves...</li><br>
+			<li>...meaning you can use top, bottom, left, and right to move it around.</li><br><br>
+			<li class="emphasis">Think of it as similar to static, but repositionable.</li>
+		</ul>
+	</div>
+
+	<div id="fixed">
+		<div class="samplePanel">
+			<p id="fixedText">Very important message</p>
+			<p class="fillerText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Est sit amet facilisis magna etiam tempor. Lectus quam id leo in. Senectus et netus et malesuada fames ac. Proin nibh nisl condimentum id. Tincidunt eget nullam non nisi. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque.</p>
+							<div class="scrollbarBG"></div>
+			<div class="scrollbar"></div>
+		</div>
+		<h3>fixed</h3>
+		<ul>
+			<li>Elements do not follow the normal document flow.</li><br>
+			<li>Instead, it is positioned based on the viewport.</li><br><br>
+			<li class="emphasis">Thus, the element will not move even if the page is scrolled -- it is "stuck" in that location.</li>
+		</ul>
+	</div>
+
+	<div id="absolute">
+				<div class="samplePanel">
+			<p id="absoluteText">Absolutely incredible text!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+		<h3>absolute</h3>
+		<ul>
+			<li>Elements also ignore the document flow...</li><br>
+			<li>...but instead of being based on viewport, it's based on its nearest ancestor.</li><br><br>
+			<li>Interestingly, this means other elements will act as if it doesn't exist -- allowing it to essentially freely overlap everything else without affecting the positioning of everything else.</li><br><br>
+			<li class="emphasis">This is very useful if you want to position something without messing up the positioning of everything else.</li>
+	</div>
+
+	<div id="sticky">
+				<div class="samplePanel">
+			<p id="stickyText">A useful navigation widget</p>
+			<p class="fillerText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Est sit amet facilisis magna etiam tempor. Lectus quam id leo in. Senectus et netus et malesuada fames ac. Proin nibh nisl condimentum id. Tincidunt eget nullam non nisi. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Cursus risus at ultrices mi tempus. Odio facilisis mauris sit amet massa.</p>
+			<div class="scrollbarBG"></div>
+			<div class="scrollbar"></div>
+		</div>
+		<h3>sticky</h3>
+		<ul>
+			<li>This is a combination of relative and fixed positioning.</li><br>
+			<li>It is relatively positioned until out of the viewport, when it becomes fixed to that side ("sticking" to the screen).</li><br><br>
+			<li class="emphasis">This is especially useful for things like headers and navbars that you want to keep visible at all times but still be able to snap in place when at the top of a page.</li>
+	</div>
+
+	<div id="lazyfooter"><br><br></div>
+	<footer>
+		You're currently viewing the <strong id="panelId">static</strong> tab. <em id="panelIdNum">(1/5)</em>
+		<p onclick="toggle()">Next &#187;</p>
+	</footer>
+
+	<script>
+		var panel0 = document.getElementById("static");
+		var panel1 = document.getElementById("relative");
+		var panel2 = document.getElementById("fixed");
+		var panel3 = document.getElementById("absolute");
+		var panel4 = document.getElementById("sticky");
+		var panelId = document.getElementById("panelId");
+
+		var stickyText = document.getElementById("stickyText");
+		var fillerText = document.getElementsByClassName("fillerText");
+		var scrollbar = document.getElementsByClassName("scrollbar");
+
+		var scrollButton = document.getElementById("scrollToggle");
+
+		var toggleState = false;
+
+		var panelIdNum = document.getElementById("panelIdNum");
+		var panelIdText = ["static", "relative", "fixed", "absolute", "sticky"];
+		var panelIndex = 0;
+		var panelArray = [panel0, panel1, panel2, panel3, panel4];
+		var i;
+
+		console.log("Script loaded.");
+
+		function toggle() {
+			panelIndex++;
+
+			if (panelIndex > 4)
+			{
+				panelIndex = 0;
+			}
+
+			console.log("Current pI: " + panelIndex);
+
+			for (i = 0; i < 5; i++)
+			{
+				if (i != panelIndex)
+				{
+					panelArray[i].style.opacity = 0;
+				}
+				else {
+					panelArray[i].style.opacity = 1;
+				}
+			}
+
+			if (panelIndex == 2 || panelIndex == 4)
+				{
+					scrollButton.style.pointerEvents = "all";
+					scrollButton.style.opacity = 1;
+				}
+				else
+				{
+					scrollButton.style.pointerEvents = "none";
+					scrollButton.style.opacity = 0;
+				}
+
+			panelId.innerText = panelIdText[panelIndex];
+/*			panelId.style.color = "#d4c1c1";
+			setTimeout(100, panelId.style.color = "#a59494");*/
+			
+
+			let panelIndexPlusOne = panelIndex + 1;
+			panelIdNum.innerText = "(" + panelIndexPlusOne + "/5)";
+
+		}
+
+		function scrollToggle() {
+			if (toggleState == false)
+			{
+				for (i = 0; i < fillerText.length; i++)
+				{
+				fillerText[i].style.top = "80px";
+				fillerText[i].innerHTML = "ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Est sit amet facilisis magna etiam tempor. Lectus quam id leo in. Senectus et netus et malesuada fames ac. Proin nibh nisl condimentum id. Tincidunt eget nullam non nisi. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Cursus risus at ultrices mi tempus. Odio facilisis mauris sit amet massa."
+				}
+
+				stickyText.style.top = "-15px";
+
+				for (i = 0; i < scrollbar.length; i++)
+				{
+					scrollbar[i].style.top = "170px";
+				}
+
+				toggleState = true;
+			}
+			else
+			{
+				for (i = 0; i < fillerText.length; i++)
+				{
+				fillerText[i].style.top = "100px";
+				fillerText[i].innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br>Est sit amet facilisis magna etiam tempor. Lectus quam id leo in. Senectus et netus et malesuada fames ac. Proin nibh nisl condimentum id. Tincidunt eget nullam non nisi. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Cursus risus at ultrices mi tempus. Odio facilisis mauris sit amet massa.";
+				}
+
+				stickyText.style.top = "120px";
+
+				for (i = 0; i < scrollbar.length; i++)
+				{
+					scrollbar[i].style.top = "30px";
+				}
+				toggleState = false;
+			}
+
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<!-- Lucas Xie | P4A Web Programming | Project 4 -->
+<html>
+<head> <!-- Head: contains metatags, links to scripts. -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="An imaginary marketplace focused on all your HTML quick-fix needs. An aesthetically relaxed yet informative documentation on HTML's finest elements.">
+	<meta name="author" content="Lucas">
+	<meta name="keywords" content="HTML, CSS, marketplace, project">
+	<meta name="copyright" content="2022">
+
+	<title>The Hypertext Warehouse | Checkout</title>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=B612+Mono&family=Inconsolata&family=Alegreya+SC:wght@800&family=Nova+Mono&display=swap');
+
+
+@font-face {
+	font-family: "Albertus MT";
+	src: url(AlbertusMT.otf);
+}
+
+@font-face {
+	font-family: "Marcellus SC";
+	src: url(MarcellusSC.ttf);
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src: url(CascadiaCode.ttf);
+}
+
+@font-face {
+	font-family: "Cascadia Code Italic";
+	src: url(CascadiaCodeItalic.ttf);
+}
+
+@font-face {
+	font-family: "Monaco";
+	src: url(Monaco.ttf);
+}
+
+.material-symbols-outlined { /* Imported from Google Icons for MD3 icons */
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 500,
+  'GRAD' 200,
+  'opsz' 48
+}
+
+.materialSymOverride { /* Google Icon fill override */
+  font-variation-settings: 'FILL' 0 !important;
+}
+
+
+/* Hamburger menu design credited to https://alvarotrigo.com/blog/hamburger-menu-css/ */
+#menu {
+  z-index: 2;
+  pointer-events: none;
+}
+
+#menu-bar {
+  width: 45px;
+  height: 40px;
+  margin: 30px 0 20px 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: #7CAEA4;
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  pointer-events: all !important;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+  font-family: Inconsolata;
+
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: #9CDAE9;
+  font-size: 20px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.nav li a.inactive {
+color: #8DBDCB;
+}
+
+.nav li a:hover {
+	color: #DEDFF3;
+		cursor: pointer;
+}
+
+.menu-bg, #menu {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: radial-gradient(circle, #4893A2, #51A4B2);
+  border-radius: 50%;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.change {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-60%,-30%);
+}
+
+/* END NAVIGATOR */
+
+
+header.hpOverride, footer.hpOverride { /* TODO: make the footer slide in and out; when you scroll to bottom it slides in and when not out. Use the code for the "to-top button" from kryptos. */
+	visibility: hidden !important;
+}
+
+header span#hpTitleTop {
+	left: 43%;
+	top: 15px;
+	font-family: "Marcellus SC";
+	font-size: 30px;
+	text-shadow: 0.8px 0.8px 4px #303c37;
+	font-weight: normal;
+	color: #99D6CD;
+	position: absolute;
+}
+
+header span#hpTitleBottom {
+	left: 44%;
+	font-family: "Marcellus SC";
+	font-size: 30px;
+	text-shadow: 0.8px 0.8px 4px #303c37;
+	margin-top: 10px;
+	font-weight: normal;
+	color: #99D6CD;
+	position: absolute;
+	top: 38px;
+}
+
+
+
+header p {
+	text-align: center;
+	font-family: "Albertus MT";
+	font-size: 16px;
+	color: #848F8F;
+}
+
+span#subtitle {
+	color: #8BA1A9 !important;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#logo {
+	filter: drop-shadow(3px 3px 15px #2E3939);
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+	width: 100px;
+	height: 95px;
+	left: 34.5%;
+}
+
+img.backdrop {
+	position: fixed;
+	z-index: -100;
+	top: -50px;
+	width: 100%;
+	height: 110%;
+	filter: brightness(60%) contrast(85%);
+	padding: 30px;
+	left: -30px;
+}
+
+footer {
+	margin: 0;
+	padding: 20px 30px 10px 30px;
+	background-color: #191916;
+	font-family: "B612 Mono";
+	color: #8C7F7D;
+	font-size: 12px;
+	position: absolute;
+	bottom: -10px;
+}
+
+.disclaimer {
+	color: #B49584;
+	font-style: italic;
+}
+
+
+
+#templogo {
+	position: absolute;
+	width: 70px;
+	image-rendering: pixelated;
+	left: 36.5%;
+	top: 13px;
+	filter: drop-shadow(0.5px 0.5px 3px #364642);
+}
+
+/*
+
+div.nav > * {
+	font-family: Cascadia Code;
+	font-size: 18px;
+	color: #96A9A7;
+	cursor: pointer;
+	top: 30px;
+	position: absolute;
+	transition: color 0.7s;
+	text-decoration: none;
+}
+
+
+div.nav > *:hover {
+	color: #D1D5E2;
+}
+
+.active {
+	color: #D4FBFF !important;
+}*/
+
+
+
+#promo-panel {
+	position: absolute;
+	background-image: linear-gradient(to top left, #FFFDDB30, #F9FFD825);
+	border-radius: 25px 20px 25px 20px;
+	z-index: -100;
+	left: 6.4%;
+	top: 140px;
+	padding: 50px 300px 310px 200px;
+}
+
+#banner {
+	position: absolute;
+	left: 34.5%;
+	top: 0;
+	padding: 90px 170px 10px 160px;
+	background-image: linear-gradient(to bottom, #DBFFF833, #B2FFEF33);
+	border-radius: 0 0 15px 15px;
+	z-index: -100;
+}
+
+div#promo-panel + span h2 {
+	position: absolute;
+	font-family: Cascadia Code;
+	font-size: 30px;
+	font-variant: small-caps;
+	color: #DFF9FF;
+	left: 50%;
+	top: 28%;
+}
+
+#promoDesc {
+	color: #A9B8C0;
+	font-family: Inconsolata;
+	font-size: 18px;
+	position: absolute;
+	top: 37%;
+	margin-left: 50%;
+	margin-right: 10%;
+	transition: opacity 0.9s;
+}
+
+#promoTitle {
+	transition: opacity 0.9s;
+}
+
+/* Useless code?
+#promoDesc > strong {
+	padding: 4px 8px;
+	border-radius: 7px;
+	background-image: linear-gradient(to bottom, #56CFD363, #79C8CC53);
+	color: #2A4750;
+	transition: color 0.75s;
+
+}
+
+#promoDesc > strong:hover {
+	color:  #7AA9B0;
+}
+*/
+
+#promo-panel-text {
+	font-family: Inconsolata;
+	font-size: 13px;
+	margin-left: 100px;
+	margin-top: 100px;
+	color: #121f21 !important;
+}
+
+#promo-panel-text > * {
+	transition: color 0.9s;
+	user-select: none;
+}
+
+
+.checkoutButton {
+	position: absolute;
+	right: 210px;
+	top: 90px;
+	/*box-shadow:inset 0px 1px 3px 0px #91b8b3;*/
+	cursor: pointer;
+	border-radius: 15px;
+	padding: 8px 30px;
+	background-color: #9BBAB65E; /*linear-gradient(to bottom,#9BBAB65E, #8AB8B95E);*/
+	font-size: 18px;
+	transition: background-color 0.8s, transform 1s, color 0.8s, translate 0.2s;
+	text-decoration: none;
+	color: #3C494C;
+}
+
+.checkoutButton:hover {
+	background-color: #ADFFFC4E; /*linear-gradient(to bottom, #748C8B5E, #6283855E);*/
+	color: #40575D;
+	transform: scaleX(103%) scaleY(101%) rotateZ(1.5deg);
+}
+
+.checkoutButton:active {
+	background-color: #72ADAC4E;
+	color: #2A393D;
+	translate: 0 1px;
+}
+
+
+form {
+	color: #CCFFE8;
+	font-family: Gill Sans;
+	position: absolute;
+	left: 30px;
+	padding: 20px 30px;
+	margin-right: 580px;
+		background-image: linear-gradient(to top left, #FFFDDB30, #F9FFD825);
+		border-radius: 25px;
+}
+
+div.advert {
+	background-image: linear-gradient(to top left, #1B1B19C0, #1F1F1DB0);
+	border-radius: 25px;
+	position: relative;
+	float: right;
+	font-family: Monaco;
+	color: #768181;
+	font-size: 10px;
+	margin-right: 40px;
+	margin-left: 100px;
+	padding: 20px;
+}
+
+div.basket {
+	background-image: linear-gradient(to top left, #9ACEC920, #89B4A245);
+	border-radius: 40px;
+	position: relative;
+	float: right;
+	top: 300px;
+	left: 530px;
+	padding: 30px 80px 50px 80px;
+	margin-bottom: 800px;
+	font-family: Gill Sans;
+}
+
+div.basket .basketItems {
+	font-family: Inconsolata;
+	color: #1A2428;
+}
+
+div.basket #basketTitle {
+	color: #273030;
+	font-variant: small-caps;
+}
+
+div.basket #basketTitle .material-symbols-outlined {
+	font-size: 20px;
+	position: relative;
+	margin: 3px;
+	transition: color 0.8s;
+	font-variant: normal !important;
+	color: #222A26;
+}
+
+div.basket #basketTitle .material-symbols-outlined:hover {
+	color: #303C36;
+	cursor: pointer;
+}
+
+div.basket #basketInfo {
+position: absolute;
+font-size: 13px;
+background-image: linear-gradient(to bottom, #232A2CDE, #232A2CDD);
+border-radius: 15px;
+padding: 5px;
+margin: 0 40px;
+color: #C0F9DD;
+text-align: center;
+top: 10px;
+left: 5px;
+opacity: 0;
+transition: opacity 0.8s;
+}
+
+
+
+div.basket :not(span.basketItems, .material-symbols-outlined) {
+	font-family: Gill Sans;
+	font-weight: normal;
+
+}
+
+div.basket .material-symbols-outlined {
+	position: relative;
+	top: 5px;
+	font-size: 20px;
+	color: #1D2324;
+	transition: color 1s;
+}
+
+div.basket .material-symbols-outlined:hover {
+	color: #273030;
+	cursor: pointer;
+}
+
+div.basket hr {
+	border: solid 1px #1C3B3B;
+}
+
+input[type="number"]
+{
+	width: 30px;
+	margin: 0 20px;
+	padding: 5px;
+	font-family: Inconsolata;
+}
+
+
+
+form p.submitCaption {
+	font-size: 12.5px;
+	color: #7F9692;
+	position: relative;
+	top: -8px;
+
+}
+
+form .material-symbols-outlined {
+	position: relative;
+	top: 4px;
+}
+
+form em {
+	font-style: normal;
+	color: #CADFD4;
+	font-size: 15px;
+}
+
+form hr { /* TEMP */
+border: 0.5px solid #7A969D;
+}
+
+#color-picker-display {
+	font-family: monospace;
+	position: relative;
+	top: -5px;
+	left: 10px;
+	margin-right: 20px;
+	color: #CADFD4;
+}
+
+#promo8 {
+color: #a3dbc8;
+}
+
+div.advert img {
+	width: 200px;
+	border-radius: 15px;
+	position: relative;
+	margin-left: 10px;
+}
+
+div.advert p#advert-caption {
+	position: relative;
+	top: 5px;
+}
+
+div.advert p#advert-name {
+	position: absolute;
+	color: #81C0A4;
+	font-size: 16px;
+	top: 40px;
+	left: 250px;
+	right: 20px;
+}
+
+form .form-validator {
+font-size: 14px;
+font-family: Inconsolata;
+position: relative;
+left: 25px;
+transition: opacity 0.8s;
+opacity: 0;
+}
+
+form .form-validator .material-symbols-outlined {
+	position: relative;
+	top: 7px;
+
+}
+
+form .form-loading span {
+animation: loading;
+animation-iteration-count: infinite;
+animation-duration: 1.5s;
+animation-timing-function: linear;
+}
+
+@keyframes loading {
+	0% {transform: rotateZ(0deg)}
+	100% {transform: rotateZ(180deg)}
+}
+
+form .form-loading {
+	color: #D0C8B1;
+}
+
+form .form-fail {
+	color: #EE727E;
+}
+
+form .form-valid {
+	color: #76CA8D;
+}
+
+input[type=text], input[type=email], input[type=date] {
+	box-sizing: border-box;
+	font-family: Inconsolata;
+	padding: 5px 10px;
+	box-shadow: 3px 3px 18px #35322d;
+	background-color: #c3fffb8d;
+	border: solid 2px #374d47;
+	 	border-radius: 6px;
+	transition: background-color 1s, border 0.5s;
+}
+
+input[type=text]:hover, input[type=email]:hover, input[type=date]:hover {
+	border-color: #608078;
+	background-color: #c9fff6ad;
+}
+
+
+input[type=text]:focus, input[type=email]:focus, input[type=date]:focus {
+outline: none !important;
+border:  solid 3.5px#598d99;
+background-color: #c9fff6bd;
+}
+
+input[type=text]::placeholder, input[type=email]::placeholder {
+	color: #30484a;
+}
+
+input[type=reset], input[type=submit] {
+	font-family: Inconsolata;
+	font-size: 15px;
+	color: #2E4A45;
+	padding: 5px 15px;
+		background-color: #A4FFD2BD;
+		border-radius: 5px;
+		border: 0;
+		transition: background-color 1s, color 1s;
+
+}
+
+input[type=reset]:hover, input[type=submit]:hover {
+	background-color: #B4F1D0;
+	color: #548382;
+	cursor: pointer;
+}
+
+
+#exploreTitle {
+	position: relative;
+	font-family: Cascadia Code;
+	font-size: 28px;
+	font-variant: small-caps;
+	color: #b1c4cb;
+	left: 50%;
+	top: 0%;
+}
+
+#exploreDesc {
+	color: #8a9aa2;
+	font-family: Inconsolata;
+	font-size: 18px;
+	position: relative;
+	top: 37%;
+	margin-left: 50%;
+	margin-right: 10%;
+	transition: opacity 0.9s;
+	font-style: oblique 7deg;
+}
+
+div#explore-panel .material-symbols-outlined {
+font-size: 30px;
+color: #8a9aa2;
+position: relative;
+left: 52%;
+top: 5%;
+}
+
+div#explore-panel .material-symbols-outlined + p {
+	font-family: Monaco;
+	font-variant: small-caps;
+	font-style: oblique 3deg;
+	color: #7a8a92;
+	position: relative;
+	left: 56%;
+	top: -45px;
+}
+
+div#explore-panel {
+	position: absolute;
+	top: 34%;
+	right: 4%;
+	pointer-events: none;
+}
+
+div#exploreTimeout {
+	padding: 2px;
+	width: 360px;
+	background-color: #a6a38f;
+	border-radius: 20px;
+	position: relative;
+	right: 660px;
+	top: 300px;
+	z-index: 2;
+	transition: width 10s linear, opacity 2s;
+	opacity:  0;
+}
+
+div#exploreTimeout:hover {
+	width: 0px;
+}
+
+div#exploreTimeoutRemainder {
+	padding: 2px;
+	width: 360px;
+	background-color: #515047;
+	border-radius: 20px;
+	position: relative;
+	right: 660px;
+	top: 296px;
+	transition: opacity 2s;
+	opacity: 0;
+}
+
+#timeBanner {
+		position: absolute;
+	left: 77%;
+	top: -10px;
+	padding: 15px 20px;
+	background-image: linear-gradient(to bottom, #bad9d533, #97dccf33);
+	border-radius: 0 0 12px 12px;
+	transition: top 1.2s ease;
+}
+
+#timeBanner:hover {
+	top: 0;
+}
+
+#timeBanner .material-symbols-outlined {
+	color: #87a79a;
+	font-size: 30px;
+		position: relative;
+	top: 5px;
+}
+
+#visitorBanner {
+		position: absolute;
+	left: 84%;
+	top: -10px;
+	padding: 15px 20px;
+	background-image: linear-gradient(to bottom, #a1dbb733, #87dea633);
+	border-radius: 0 0 12px 12px;
+	transition: top 1.2s ease;
+}
+
+#visitorBanner:hover {
+	top: 0;
+}
+
+#visitorBanner .material-symbols-outlined {
+	color: #71a884;
+	font-size: 30px;
+		position: relative;
+	top: 5px;
+}
+
+#infoBanner {
+		position: absolute;
+	left: 91%;
+	top: -10px;
+	padding: 15px 20px;
+	background-image: linear-gradient(to bottom, #d8aa9a33, #d8897f33);
+	border-radius: 0 0 12px 12px;
+	transition: top 1.2s ease;
+}
+
+#infoBanner:hover {
+	top: 0;
+}
+
+#infoBanner .material-symbols-outlined {
+	color: #a5826b;
+	font-size: 30px;
+	position: relative;
+	top: 5px;
+}
+
+.tooltip {
+	position: absolute;
+	background-image: linear-gradient(to top right, #0e0d0c5E, #0a0a0a6E);
+	border-radius: 20px;
+	top: 70px;
+		padding: 3px;
+}
+
+.tooltip p {
+	font-family:  Inconsolata;
+	font-size: 12px;
+}
+
+
+#timeBannerTooltip {
+	right: 60px;
+	width: 200px;
+	transition: opacity 1.2s ease;
+			opacity: 0;
+}
+
+#timeBannerTooltip p {
+		color: #87b2a1;
+}
+
+p#time {
+	font-family: Inconsolata;
+	font-size: 12px;
+	color: #87b2a1;
+}
+
+#timeBanner:hover + #timeBannerTooltip{
+		opacity: 1;
+}
+
+#visitorBannerTooltip {
+	right: 50px;
+	width: 220px;
+	transition: opacity 1.2s ease;
+				opacity: 0;
+}
+
+#visitorBannerTooltip p {
+		color: #7db390;
+}
+
+#visitorBanner:hover + #visitorBannerTooltip{
+		opacity: 1;
+}
+
+#infoBannerTooltip {
+	right: 10px;
+		width: 400px;
+	transition: opacity 1.2s ease;
+				opacity: 0;
+}
+
+#infoBannerTooltip p {
+		color: #b19986;
+}
+
+#infoBanner:hover + #infoBannerTooltip{
+		opacity: 1;
+}
+
+
+
+
+#hover-hint {
+font-family: Monaco;
+font-variant: small-caps;
+font-style: oblique 4deg;
+position: relative;
+color: #69695e;
+left: 160px;
+top: -5px;
+transition: opacity 2s;
+}
+
+#citations {
+position: absolute;
+}
+
+#citationsPanel {
+	color: #e8ddcc;
+	font-family: Inconsolata;
+	font-size: 10px;
+	width: 500px;
+	position: absolute;
+	top: -440px;
+	left: 100px;
+	padding: 20px 300px 20px 20px;
+	background-color: #1c1b1ace;
+	border-radius: 15px;
+	transition: opacity 1.2s;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#citationsPanel img {
+	position: absolute;
+	width: 150px;
+		border-radius: 15px;
+		top: 50px;
+		right: 50px;
+}
+
+#citationsPanel span {
+	position: absolute;
+	top: 210px;
+	right: 50px;
+	font-family: Cascadia Code;
+	color: #c0b3aa;
+}
+
+
+#citations .material-symbols-outlined {
+	font-size: 30px;
+	color: #B8A88F;
+	position: absolute;
+	top: -35px;
+	left: 1270px;
+	transition: color 1.2s;
+	z-index: 200;
+}
+
+#citations .material-symbols-outlined:hover {
+	color: #DECAC3;
+	cursor: pointer;
+}
+
+#citations .material-symbols-outlined:hover + #citationsPanel {
+	opacity: 1;
+}
+
+#inactiveWarning {
+	position: absolute;
+	top: 140px;
+	left: 140px;
+	z-index: 100;
+	color: #D96F87;
+	font-family: Inconsolata;
+	background-color: #3F23288E;
+	padding: 2px 5px 10px 5px;
+	border-radius: 20px;
+	opacity: 0;
+	transition: opacity 1.2s, top 0.3s ease, left 0.3s ease;
+}
+
+#inactiveWarning span {
+	position: relative;
+	top: 6px;
+}
+
+input[type="number"]
+{
+	border: 0;
+	background-color: #9CAEAA93;
+	appearance: textfield;
+	border-radius: 5px;
+
+}
+
+input[type="number"]::placeholder {
+	color: #3A4442;
+}
+
+
+#subtotal, #tax, #totaltotal {
+	font-variant: small-caps;
+	font-size: 18px;
+	color: #1B2322;
+}
+
+#totaltotal {
+	font-size: 21px;
+	color: #2C3D3D;
+}
+
+div#buffer {
+	height: 8px;
+}
+
+</style>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+	<script src="tinycolor.js" defer></script>
+	<script src="script.js" defer></script>
+
+</head>
+<body>
+	<img src="rain-park.jpg" class="backdrop">
+<header class="hpOverride"> <!-- Header: contains hamburger menu and title banner -->
+	<div id="banner"></div>
+	<img src="favicon.png" id="templogo">
+	<h1><span id="hpTitleTop">The Hypertext</span><br><span id="hpTitleBottom">Warehouse</span></h1>
+
+
+
+	<canvas id="logo" width="275" height="275"></canvas>
+</header>
+
+<!-- Advert: this is a customized advertisement that changes on each load. It refers to features of the website and my other projects as well. -->
+<div class="advert">
+<img src="StackContainers.webp" height="135" id="advert-img">
+<p id="advert-name">Your favorite elements, now brilliantly packaged.</p>
+<p id="advert-caption">/* Purchase a bundle today and get a discount on your entire purchase. */</p>
+</div>
+
+<div class="basket"> <!-- Basket: contains basic information about the chosen order. No functionality added yet. Big side note: there's no restrictions on what # you can type into quantity -- what I would want is to lock it to integers-only, 1-3. -->
+<h4 id="basketTitle">Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unit Price<span class="material-symbols-outlined" id="basketHelp">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quantity</h4>
+<p id="basketInfo">Each unit is a permanent license to your selected element for up to three devices.</p>
+<span class="basketItems">&lt;html&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$0.99&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="1" class="quantityNeedsValidation" min="1" max="5" value="1"><span class="material-symbols-outlined" onclick="resetQuantity(0)">delete</span>
+	<br>&lt;body&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$0.99&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="1" class="quantityNeedsValidation" min="1" max="5" value="1"><span class="material-symbols-outlined" onclick="resetQuantity(1)">delete</span>
+	<br>&lt;div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1.99&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" placeholder="1" class="quantityNeedsValidation" min="1" max="5" value="1"><span class="material-symbols-outlined" onclick="resetQuantity(2)">delete</span></span>
+	<br><br><hr><br>
+	<!-- Price widget: automatically changes based on changes in item quantity (see above)-->
+	<span id="subtotal">subtotal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="subtotalValue">$3.97</span></span><br><div id="buffer"></div> <!-- Ignore the nbsp spam; just a quick n' dirty formatting fix -->
+	<span id="tax">tax&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="taxValue">$0.23</span></span><br><br><br>
+	<span id="totaltotal">your total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="totalValue">$4.20</span></span>
+
+
+</div>
+
+
+<!-- Form: contains a variety of input fields (some with special validation). Note that I did not figure out why the fields' information was not all being sent when submitting to send the form email -->
+<form method="post" action="mailto:dkahle@uaschools.org" enctype="text/plain" id="checkoutForm">
+<span class="material-symbols-outlined">person</span>&nbsp;&nbsp;Name<br><p class="submitCaption">Input an identifying name (preferably full) for this order.</p><input type="text" pattern="^[A-Za-z ,.'-]+$" placeholder="John Doe" class="inputNeedsValidation" name="Name"><span class="form-validator form-fail"><span class="material-symbols-outlined">error</span>&nbsp;Must be only alphabetic characters</span><br><br><br>
+
+<span class="material-symbols-outlined">mail</span>&nbsp;&nbsp;Email Address<br><p class="submitCaption">Input a secure, valid email address for additional order information and verification.</p><input type="email" pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$" placeholder="email@address.com" class="inputNeedsValidation" name="Email Address"><span class="form-validator form-valid"><span class="material-symbols-outlined">done</span>&nbsp;Valid!</span><br><br><br>
+
+<span class="material-symbols-outlined">add_card</span>&nbsp;&nbsp;Payment Method<br><p class="submitCaption">Choose the transaction method you prefer the most.</p><em><label><input type="radio" name="Payment Method" value="credit" checked>Credit/Debit</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="Payment Method" value="cash">Cash</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="Payment Method" id="check" value="check">Check</label></em><br><br><br><br><hr><br>
+
+<span class="material-symbols-outlined">calendar_month</span>&nbsp;&nbsp;Pickup Date<br><p class="submitCaption">Choose the date you prefer the most. Must be within 30 days.</p><input type="date" class="inputNeedsValidation" name="Pickup Date"><span class="form-validator form-loading"><span class="material-symbols-outlined">cached</span>&nbsp;Checking validity...</span><br><br><br><br>
+
+<span class="material-symbols-outlined">priority</span>&nbsp;&nbsp;Priority<br><p class="submitCaption">In the event that your date is unavailable, we will determine order priority based on this.</p><em>Lowest urgency (10-15 days)&nbsp;&nbsp;&nbsp;<input type="range" step="25" value="50" name="Priority">&nbsp;&nbsp;&nbsp;Highest urgency (1-2 days)</em><br><br><br><br>
+
+<span class="material-symbols-outlined">format_paint</span>&nbsp;&nbsp;Color Scheme<br><p class="submitCaption">If available, you will receive your products in a nice and quaint collectible tin centered around this color!<p><input type="color" value="#FFFFFF" id="color-picker" class="inputNeedsValidation" name="Color Scheme"><code id="color-picker-display">#ffffff</code><span class="form-validator form-loading"><span class="material-symbols-outlined">cached</span>&nbsp;Checking validity...</span><br><br><br><br><hr><br><!-- Make a check that "checks" if a color is available (e.g. no overly bright colors). Make it purposely load for a few milliseconds.-->
+
+<span class="material-symbols-outlined">receipt_long</span>&nbsp;&nbsp;Would you like a receipt?<br><p class="submitCaption">Your receipt will be digitally emailed to your specified address.</p><em><label><input type="radio" name="Receipt" value="yes" checked>Yes</label>&nbsp;&nbsp;<label><input type="radio" name="Receipt" value="no">No</label></em>
+<br><br><br><br>
+<input type="reset">
+<input type="submit" value="Submit order" class="submitButton"></form>
+
+<!-- Hamburger menu credited to https://alvarotrigo.com/blog/hamburger-menu-css/ -->
+<div id="menu">
+  <div id="menu-bar" onclick="menuOnClick()">
+    <div id="bar1" class="bar"></div>
+    <div id="bar2" class="bar"></div>
+    <div id="bar3" class="bar"></div>
+  </div>
+  <nav class="nav" id="nav">
+    <ul>
+      <li><a href="Project4LX.html">Homepage</a></li>
+      <li><a class="inactive">Essentials</a></li>
+      <li><a class="inactive">Markdown</a></li>
+      <li><a class="inactive">Sandbox</a></li>
+    </ul>
+  </nav> 
+</div>
+
+<div id="inactiveWarning"><span class="material-symbols-outlined">error</span> This page is unavailable.</div>
+
+<div class="menu-bg" id="menu-bg"></div>
+<!-- End hamburger menu -->
+
+<!-- Footer: contains disclaimer -->
+<footer class="hpOverride"><span class="disclaimer">Disclaimer:</span> This is a fictional business created in a Web Programming class for the purpose of learning HTML and CSS. Note that <strong>no products or services are actually for sale</strong>.</footer>
+</body>
+</html>
+

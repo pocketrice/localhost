@@ -1,0 +1,106 @@
+<!-- PROJECT 3: CAREER PAGE | Lucas Xie | P4A Web Programming -->
+<!-- Description: The home page for this website. It includes a slideshow and a big emphasis on visuals instead of what you would traditionally see on a homepage. Includes links to many of the other pages and introduces the role of a cryptographer.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Kryptos</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="icon" type="image/x-icon" href="kryptos-favicon.png">
+	<link rel="preload" href="kryptos-terminal.svg" as="image">
+	<link rel="preload" href="kryptos-paper-3.svg" as="image">
+
+
+	<script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js" defer></script> <!-- Smooth scrolling for browsers that don't support scroll-behavior: smooth -->
+	<script src="script.js" defer></script>
+
+	<meta charset="utf-8"> <!-- Recommended meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Recommended meta -->
+	<meta name="description" content="An in-depth introduction to the growing cryptographer job">
+	<meta name="keywords" content="cryptography, computer science, job">
+</head>
+
+<body id="homepage" onload="showSlides(slideIndex)" onscroll="topCheck()">
+	<header class="top"> 
+		<span id="textTitle">Kryptos&nbsp;&nbsp;&nbsp;</span><br class="portraitMode"><span id="textSubtitle"></span>
+	</header>
+
+	<nav> <!-- NAVBAR -->
+		<ul>
+			<li> <a href="Project3LX.html" class="active">Home</a></li>
+			<li> <a href="pathway.html">Pathway</a></li>
+			<li> <a href="cert.html">Certifications</a></li>
+			<li> <a href="cipher.html">Ciphers</a></li>
+			<li> <a href="resources.html">Resources</a></li>
+			<li> <a href="demo.html">Demo</a></li>
+
+		</ul>
+	</nav>
+
+	<!--<p id="debugThing" style="color:red">ACTIVE</p>-->
+
+	<a onclick="topButtonToggle(1)"><img src="kryptos-top-button.svg" class="topbutton"></a>
+	<img onclick="topButtonToggle(0)" src="top-button-minimize.png" class="topbuttonToggle">
+
+
+	<div id="slideshowMain"> <!-- SLIDESHOW -->
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+		<span id="captionOverlay"></span>
+
+		<div id="slideshow1">
+			<img src="RS-kryptos.jpg" class="slidesImg" loading="lazy">
+			<p class="slidesCaption">Kryptos, a famous unsolved ciphertext outside of the CIA building<sup><a href="citations.html#1">1</a></sup></p>
+		</div>
+
+
+		<div id="slideshow2">
+			<img src="rsa-conf4.jpg" class="slidesImg" loading="lazy">
+			<p class="slidesCaption">Large crowd at the 2013 RSA Conference, an annual expo centered around cryptography and security<sup><a href="citations.html#2">2</a></sup></p>
+		</div>
+
+		<div id="slideshow3">
+			<img src="RS-blackboard.jpg" class="slidesImg" loading="lazy">
+			<p class="slidesCaption">Blackboard with calculations about Diffie-Hellman key exchanges, a technique of cryptography<sup><a href="citations.html#3">3</a></sup></p>
+		</div>
+
+		<div id="slideshow4">
+			<img src="RS-enigma.jpg" class="slidesImg" loading="lazy">
+			<p class="slidesCaption">Enigma cipher machine at Bletchley Park, the famous HQ of Allied codebreaking during WWII<sup><a href="citations.html#4">4</a></sup></p>
+		</div>
+	</div>
+
+	<br><br><br>
+	<div class="seam-mask">
+	<img src="kryptos-seam1.png" id="seam1A" loading="lazy" draggable="false" ondragstart="return false">
+		</div>
+		<img src="kryptos-seam1.png" id="seam1B" loading="lazy" draggable="false" ondragstart="return false">
+
+	<div id="homepageBG"> <!-- PROMO SECTION -->
+
+		<br><br><br><br><br><br><br><br><br>
+		<img src="kryptos-newspaper.svg" id="graphic1" loading="lazy" draggable="false" ondragstart="return false"> <!-- PROMO PART 1 -->
+		<a href="cipher.html"><img src="kryptos-note-1.svg" id="redirect1" loading="lazy"></a>
+
+
+
+		<img src="kryptos-terminal.svg" id="graphic2" loading="lazy" draggable="false" ondragstart="return false"> <!-- PROMO PART 2 -->
+		<span id="kryptos-text-1">enigma-cipher-pro:~ % cd Desktop/"Fast Facts"<br>enigma-cipher-pro:Fast Facts % java fast-facts.jar&nbsp;<span id="consoleCursor"></span><br><br><br>==================================================================<br><br><strong>// Some fast facts about cryptography!</strong><br><br>Salary (entry, average): <em>$109,500/yr, $149,040/yr</em><br><br>Outlook: <em>expected growth by 30% before 2028</em><br><br>Training: <em>bachelor's degree in math/computer science, mastery of <br>C++ and Java, algorithms, and symmetric/asymmetric cryptography</em><br><br>==================================================================</span>
+		<a href="pathway.html"><img src="kryptos-note-2.svg" id="redirect2" loading="lazy"></a>
+
+
+
+		<img src="kryptos-paper-1.svg" id="paper1" loading="lazy" draggable="false" ondragstart="return false"> <!-- PROMO PART 3 -->
+		<img src="kryptos-paper-2.svg" id="paper2" loading="lazy" draggable="false" ondragstart="return false">
+		<img src="kryptos-paper-3.svg" id="paper3" loading="lazy" draggable="false" ondragstart="return false">
+		<a href="cert.html"><img src="kryptos-note-3.svg" id="redirect3" loading="lazy"></a>
+
+
+		<br></div>
+		<footer> <!-- FOOTER -->
+			<small>Copyright &copy; 2022 Lucas <strong>&nbsp;&boxV;&nbsp;</strong>   
+				<a href="mailto:xie.3@uaschools.org">Questions? Concerns? Email the author</a> <strong>&nbsp;&boxV;&nbsp;</strong>  <a href="citations.html">Citations</a></small>
+			</footer>
+		</body>
+		</html>

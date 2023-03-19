@@ -1,0 +1,77 @@
+<!-- PROJECT 3: CAREER PAGE | Lucas Xie | P4A Web Programming -->
+<!-- Description: This is the 'colleges' page. Contains information about good programs/colleges to pursue for the next steps to being a professional cryptographer.-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Kryptos | Pathway</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="icon" type="x-icon" href="kryptos-favicon.png">
+	<link rel="preload" href="logos/stanford-univ-logo.svg" as="image">
+	<link rel="preload" href="logos/stevens-inst-of-tech-logo.svg" as="image">
+	<link rel="preload" href="logos/rit-inst-of-tech-logo.svg" as="image">
+	<link rel="preload" href="logos/delft-univ-caltech-logo.svg" as="image">
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/seamless-scroll-polyfill@latest/lib/bundle.min.js" defer></script> <!-- Smooth scrolling for browsers that don't support scroll-behavior: smooth -->
+	<script src="script-abbreviated.js" defer></script>
+
+
+
+	<meta charset="utf-8"> <!-- Recommended meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Recommended meta -->
+	<meta name="description" content="An in-depth introduction to the growing cryptographer job">
+	<meta name="keywords" content="cryptography, computer science, job">
+</head>
+<body onscroll="topCheck()">
+	<header class="top"> <!-- HEADER -->
+		<span id="textTitle">Kryptos&nbsp;&nbsp;&nbsp;</span><br class="portraitMode"><span id="textSubtitle"></span>
+	</header>
+
+	<nav> <!-- NAVBAR -->
+		<ul>
+			<li> <a href="Project3LX.html">Home</a></li>
+			<li> <a href="pathway.html" class="active">Pathway</a></li>
+			<li> <a href="cert.html">Certifications</a></li>
+			<li> <a href="cipher.html">Ciphers</a></li>
+			<li> <a href="resources.html">Resources</a></li>
+			<li> <a href="demo.html">Demo</a></li>
+		</ul>
+	</nav>
+
+
+	<a onclick="topButtonToggle(1)"><img src="kryptos-top-button.svg" class="topbutton"></a>
+	<img onclick="topButtonToggle(0)" src="top-button-minimize.png" class="topbuttonToggle">
+	<div class="summaryContainer">
+		<br>
+		<p class="summaryText">It's important to have a solid foundation prior to trying to become a professional cryptographer. Look for these courses/colleges if you plan on pursuing a career in cryptography -- both classical or quantum!</p><br></div> <!-- SUMMARY -->
+
+		<div class="darkBG"><img src="walnut-wood.jpg"><img src="walnut-wood.jpg" class="darkBG2"></div><div class="darkBGshade"></div> <!-- SECTION 1 -->
+		<table class="infoTable">
+			<tr>
+				<td class="trTitle">Stanford University<sup><a href="citations.html#5">5</a></sup><br><p>Introduction to Cryptography</p></td>
+				<td><a href="https://crypto.stanford.edu" target="_blank"><img src="logos/stanford-univ-logo.svg" loading="lazy" class="logoRedirect"></a><span class="tooltipContainer"><input type=button class="infoButton"><span class="infoTooltip">This introductory course focuses on basic cryptographic techniques such as encryption, hashing, network security protocols such as SSL, and more.<br><br>It is recommended to have some programming experience and a basic understanding of probability/modular math.<br><br><span class="tooltipEmphasis">Good choice if you want to pursue a career in cybersecurity in general.</span></span></span></td>
+			</tr>
+			<tr>
+				<td class="trTitle">Stevens Institute of Technology<sup><a href="citations.html#6">6</a></sup><br><p>Algebraic Cryptography Center</p></td>
+				<td><a href="https://www.stevens.edu/schaefer-school-engineering-science/departments/mathematical-sciences/research/algebraic-cryptography-center" target="_blank"><img src="logos/stevens-inst-of-tech-logo.svg" loading="lazy" class="logoRedirect"></a><span class="tooltipContainer"><input type=button class="infoButton"><span class="infoTooltip">The Stevens Institute of Technology's Algebraic Cryptography Center focuses on applying new computational techniques to solve real-world problems related to cryptography.<br><br>While it does not offer membership to students and instead is run by faculty, it does offer many workshops and conferences that would be beneficial to attend!<br><br><span class="tooltipEmphasis">More advanced option if you want to gain valuable experience with cryptography in a professional setting.</span></span></span></td>
+			</tr>
+			<tr>
+				<td class="trTitle">Rochester Institute of Technology<sup><a href="citations.html#7">7</a></sup><br><p>Computing Security Degree</p></td>
+				<td><a href="https://www.rit.edu/study/computing-security-bs" target="_blank"><img src="logos/rit-inst-of-tech-logo.svg" loading="lazy" class="logoRedirect"></a><span class="tooltipContainer"><input type=button class="infoButton"><span class="infoTooltip">RIT's cybersecurity program is well-known for being widely accredited and hosted in the Global Cybersecurity Institute, one of the world's leading cybersecurity research centers.<br><br>If you are looking for an all-encompassing and comprehensive start into cryptography or cybersecurity, pursue this program!<br><br><span class="tooltipEmphasis">This would be a fantastic option if you want to pursue cryptography as a career.</span></span></td>
+			</tr>
+			<tr>
+				<td class="trTitle">CalTech / Delft University of Technology<sup><a href="citations.html#8">8</a></sup><br><p>Quantum Cryptography</p></td>
+				<td><a href="https://www.edx.org/course/quantum-cryptography?source=aw&awc=6798_1648134075_b5df28d12a30d465bd1b146e79932dcb&utm_source=aw&utm_medium=affiliate_partner&utm_content=text-link&utm_term=427859_Digital+Defynd" target="_blank"><img src="logos/delft-univ-caltech-logo.svg" loading="lazy" class="logoRedirect"></a><span class="tooltipContainer"><input type=button class="infoButton"><span class="infoTooltip">This course is taught through edX, meaning anyone interested can enroll and learn fully online!<br><br>This class focuses on quantum cryptography, a new field of cryptography focused on understanding and utilizing the full extent of quantum mechanics.<br><br>Make sure to attend this class if you are interested in the future of cryptography and cybersecurity!<br><br><span class="tooltipEmphasis">A flexible and useful option for anyone interested in cryptography.</span></span></span></td>
+				
+			</tr>
+		</table>
+
+		<footer> <!-- FOOTER -->
+			<small>Copyright &copy; 2022 Lucas <strong>&nbsp;&boxV;&nbsp;</strong>   
+				<a href="mailto:xie.3@uaschools.org">Questions? Concerns? Email the author</a> <strong>&nbsp;&boxV;&nbsp;</strong>  <a href="citations.html">Citations</a></small>
+			</footer>
+		</body>
+		</html>

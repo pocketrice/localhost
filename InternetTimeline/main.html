@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Internet History Timeline</title>
+<script src="script.js"></script>
+<style>
+h2 {
+text-align: center;
+font-family: Gill Sans;
+}
+
+#timeline {
+position: absolute;
+top: 15px;
+left: 70px;
+}
+
+#revised {
+    position: absolute;
+    width: 120px;
+    left: 50%;
+    padding-left: 130px;
+    top: 41px;
+    transform: rotateZ(-12deg);
+    filter: drop-shadow(2px 2px 5px #70403A);
+}
+
+/*.markersingle {
+position: absolute;
+z-index: 2;
+width: 82px;
+top: 178px;
+}
+
+.markerdoubleTop {
+position: absolute;
+z-index: 1;
+width: 82px; 
+ top: 134px;
+}
+
+.markerdoubleBottom {
+position: absolute;
+z-index: 2;
+width: 82px; 
+ top: 144px;
+}*/
+
+body {
+background-color: #c9e8ee;
+}
+
+
+#m1, #m2, #m3, #m4, #m5, #m6, #m7, #m8, #m9, #m10, #m11, #m12, #m13, #m14, #m15, #m16, #m17, #m18, #m19, #m20
+{
+    transition: opacity 1.5s;
+
+}
+
+#markerS > * { /* Apply to all the element's children?? */
+    position: absolute;
+    z-index: 2;
+    width: 43px;
+    height: 26px;
+}
+
+
+#markerM > * {
+z-index: 3;
+position: fixed;
+width: 500px;
+top: 55%;
+left: 20%;
+opacity: 0;
+box-shadow: -1px -1px 10px 5px #6c8385;
+}
+
+.emptyMarker {
+    z-index: 1;
+    position: fixed;
+    width: 500px;
+    top: 55%;
+    left: 20%;
+    box-shadow: -1px -1px 8px #515151;
+    transition: opacity 2s;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+
+
+<h2>Internet History Timeline</h2>
+<img src="timeline.svg" width="1200px" id="timeline">
+<img src="revised.svg" id="revised">
+
+<span id="markerS">
+<img src="marker.png" id="s1" style=" left: 115px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s2" style=" left: 157px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s3" style=" left: 213px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s4" style=" left: 255px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s5" style=" left: 301px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s6" style=" left: 373px; z-index: 1; top: 170px;"> <!-- markerdoubleTop -->
+<img src="marker.png" id="s7" style=" left: 373px; top: 184px;"> <!-- markerdoubleBottom -->
+<img src="marker.png" id="s8" style=" left: 424px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s9" style=" left: 487px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s10" style=" left: 588px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s11" style=" left: 670px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s12" style=" left: 712px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s13" style=" left: 780px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s14" style=" left: 829px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s15" style=" left: 875px; z-index: 1; top: 170px;"> <!-- markerdoubleTop -->
+<img src="marker.png" id="s16" style=" left: 875px;  top: 184px;"> <!-- markerdoubleBottom -->
+<img src="marker.png" id="s17" style=" left: 921px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s18" style=" left: 998px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s19" style=" left: 1047px; top: 178px;"> <!-- markersingle-->
+<img src="marker.png" id="s20" style=" left: 1188px; top: 178px;"> <!-- markersingle-->
+</span>
+
+<span id="markerM">
+<img src="marker1.png" id="m1">
+    <img src="marker2.png" id="m2">
+<img src="marker3.png" id="m3">
+<img src="marker4.png" id="m4">
+<img src="marker5.png" id="m5">
+<img src="marker6.png" id="m6">
+<img src="marker7.png" id="m7">
+<img src="marker8.png" id="m8">
+<img src="marker9.png" id="m9">
+<img src="marker10.png" id="m10">
+<img src="marker11.png" id="m11">
+<img src="marker12.png" id="m12">
+<img src="marker13.png" id="m13">
+<img src="marker14.png" id="m14">
+<img src="marker15.png" id="m15">
+<img src="marker16.png" id="m16">
+<img src="marker17.png" id="m17">
+<img src="marker18.png" id="m18">
+<img src="marker19.png" id="m19">
+<img src="marker20.png" id="m20">
+</span>
+<img src="markerempty.png" class="emptyMarker">
+<img src="markerblank.png" style="opacity: 0" class="emptyMarker">
+
+
+
+</body>
+
+
+
+</html>
